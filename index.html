@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TAJA MEDIA - Images & Videos</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#f4f6f8;
+  color:#222;
+}
+
+header{
+  background:linear-gradient(135deg,#111827,#2563eb);
+  color:white;
+  text-align:center;
+  padding:28px 15px;
+}
+
+header h1{
+  font-size:34px;
+  letter-spacing:2px;
+}
+
+header p{
+  margin-top:7px;
+  color:#dbeafe;
+}
+
+nav{
+  background:#fff;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:12px;
+  box-shadow:0 2px 10px #0001;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+nav button{
+  border:0;
+  background:#eef2ff;
+  color:#1d4ed8;
+  padding:9px 17px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+nav button:hover{
+  background:#2563eb;
+  color:white;
+}
+
+.search{
+  max-width:700px;
+  margin:25px auto 10px;
+  padding:0 15px;
+}
+
+.search input{
+  width:100%;
+  padding:14px 18px;
+  border:1px solid #ddd;
+  border-radius:30px;
+  font-size:16px;
+  outline:none;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:20px 15px 50px;
+}
+
+.section-title{
+  margin:20px 0 15px;
+  font-size:25px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 3px 15px #00000012;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 7px 20px #00000020;
+}
+
+.card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  display:block;
+}
+
+.card-content{
+  padding:15px;
+}
+
+.card h3{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#666;
+  font-size:14px;
+  margin-bottom:12px;
+}
+
+.btn{
+  display:inline-block;
+  background:#2563eb;
+  color:white;
+  padding:9px 16px;
+  border-radius:7px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.btn:hover{
+  background:#1d4ed8;
+}
+
+.video-card{
+  position:relative;
+}
+
+.play{
+  position:absolute;
+  left:50%;
+  top:85px;
+  transform:translate(-50%,-50%);
+  width:55px;
+  height:55px;
+  background:#ef4444;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+}
+
+footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:30px 15px;
+  margin-top:30px;
+}
+
+footer p{
+  color:#cbd5e1;
+  margin-top:7px;
+}
+
+.hidden{
+  display:none;
+}
+
+@media(max-width:600px){
+
+  header h1{
+    font-size:27px;
+  }
+
+  nav{
+    overflow-x:auto;
+    justify-content:flex-start;
+  }
+
+  nav button{
+    white-space:nowrap;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .card img{
+    height:135px;
+  }
+
+  .card-content{
+    padding:11px;
+  }
+
+  .card h3{
+    font-size:15px;
+  }
+
+  .btn{
+    font-size:12px;
+    padding:8px 11px;
+  }
+}
+
+@media(max-width:380px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>TAJA MEDIA</h1>
+  <p>Images • Videos • Media Gallery</p>
+</header>
+
+<nav>
+  <button onclick="showCategory('all')">All</button>
+  <button onclick="showCategory('image')">Images</button>
+  <button onclick="showCategory('video')">Videos</button>
+</nav>
+
+<div class="search">
+  <input
+    type="text"
+    id="searchBox"
+    placeholder="Search images or videos..."
+    onkeyup="searchMedia()">
+</div>
+
+<main class="container">
+
+  <!-- IMAGE SECTION -->
+  <h2 class="section-title">Latest Images</h2>
+
+  <div class="grid" id="mediaGrid">
+
+    <!-- IMAGE 1 -->
+    <div class="card media-card image-item" data-title="Beautiful Image">
+
+      <img
+        src="https://via.placeholder.com/600x400?text=TAJA+MEDIA"
+        alt="Beautiful Image">
+
+      <div class="card-content">
+
+        <h3>Beautiful Image</h3>
+
+        <p>Click below to view the image.</p>
+
+        <!-- YOUR IMAGE LINK -->
+        <a
+          class="btn"
+          href="IMAGE_LINK_1"
+          target="_blank">
+          View Image
+        </a>
+
+      </div>
+    </div>
+
+
+    <!-- IMAGE 2 -->
+    <div class="card media-card image-item" data-title="New Image">
+
+      <img
+        src="https://via.placeholder.com/600x400?text=IMAGE+2"
+        alt="New Image">
+
+      <div class="card-content">
+
+        <h3>New Image</h3>
+
+        <p>Click below to view the image.</p>
+
+        <a
+          class="btn"
+          href="IMAGE_LINK_2"
+          target="_blank">
+          View Image
+        </a>
+
+      </div>
+    </div>
+
+
+    <!-- VIDEO 1 -->
+    <div class="card media-card video-item" data-title="Latest Video">
+
+      <div class="video-card">
+
+        <img
+          src="https://via.placeholder.com/600x400?text=VIDEO+1"
+          alt="Latest Video">
+
+        <div class="play">▶️</div>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>Latest Video</h3>
+
+        <p>Click below to watch the video.</p>
+
+        <!-- YOUR VIDEO LINK -->
+        <a
+          class="btn"
+          href="VIDEO_LINK_1"
+          target="_blank">
+          Watch Video
+        </a>
+
+      </div>
+    </div>
+
+
+    <!-- VIDEO 2 -->
+    <div class="card media-card video-item" data-title="New Video">
+
+      <div class="video-card">
+
+        <img
+          src="https://via.placeholder.com/600x400?text=VIDEO+2"
+          alt="New Video">
+
+        <div class="play">▶️</div>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>New Video</h3>
+
+        <p>Click below to watch the video.</p>
+
+        <a
+          class="btn"
+          href="VIDEO_LINK_2"
+          target="_blank">
+          Watch Video
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <h2>TAJA MEDIA</h2>
+
+  <p>
+    Images • Videos • Media Gallery
+  </p>
+
+  <p>
+    © 2026 TAJA MEDIA
+  </p>
+
+</footer>
+
+
+<script>
+
+function showCategory(category){
+
+  let cards=document.querySelectorAll('.media-card');
+
+  cards.forEach(function(card){
+
+    if(category==='all'){
+      card.style.display='';
+    }
+
+    else if(category==='image'){
+      card.style.display=
+        card.classList.contains('image-item')
+        ? ''
+        : 'none';
+    }
+
+    else if(category==='video'){
+      card.style.display=
+        card.classList.contains('video-item')
+        ? ''
+        : 'none';
+    }
+
+  });
+
+}
+
+
+function searchMedia(){
+
+  let search=
+    document.getElementById('searchBox')
+    .value
+    .toLowerCase();
+
+  let cards=
+    document.querySelectorAll('.media-card');
+
+  cards.forEach(function(card){
+
+    let title=
+      card.getAttribute('data-title')
+      .toLowerCase();
+
+    card.style.display=
+      title.includes(search)
+      ? ''
+      : 'none';
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
