@@ -4,259 +4,213 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TAJA MEDIA - Images & Videos</title>
-<meta name="description" content="TAJA MEDIA - Images, Videos and Media Gallery">
+<title>TAJA MEDIA</title>
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f3f5f9;
-  color:#172033;
+    font-family:Arial,sans-serif;
+    background:#f3f6fb;
+    color:#222;
 }
 
 header{
-  background:linear-gradient(135deg,#080b14,#155eef);
-  color:#fff;
-  padding:30px 15px;
-  text-align:center;
+    background:linear-gradient(135deg,#111827,#2563eb);
+    color:white;
+    text-align:center;
+    padding:32px 15px;
 }
 
 header h1{
-  font-size:38px;
-  letter-spacing:2px;
-  font-weight:800;
+    font-size:36px;
+    margin-bottom:8px;
 }
 
 header p{
-  margin-top:7px;
-  color:#dbeafe;
+    font-size:15px;
+    opacity:.9;
 }
 
-nav{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#fff;
-  padding:12px;
-  text-align:center;
-  box-shadow:0 3px 15px #00000015;
+.tabs{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding:18px 10px;
+    flex-wrap:wrap;
 }
 
-.nav-btn{
-  border:0;
-  background:#eef2ff;
-  color:#1646b5;
-  padding:10px 18px;
-  margin:3px;
-  border-radius:25px;
-  cursor:pointer;
-  font-weight:bold;
+.tabs button{
+    border:0;
+    background:#e5e7eb;
+    padding:11px 22px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.nav-btn:hover,
-.nav-btn.active{
-  background:#155eef;
-  color:white;
+.tabs button.active{
+    background:#2563eb;
+    color:white;
 }
 
-.search-box{
-  max-width:700px;
-  margin:25px auto;
-  padding:0 15px;
+.search{
+    max-width:650px;
+    margin:0 auto 25px;
+    padding:0 15px;
 }
 
-.search-box input{
-  width:100%;
-  padding:15px 20px;
-  border:1px solid #d9dee8;
-  border-radius:30px;
-  outline:none;
-  font-size:16px;
-  background:white;
+.search input{
+    width:100%;
+    padding:14px 18px;
+    border:1px solid #ddd;
+    border-radius:30px;
+    outline:none;
+    font-size:15px;
 }
 
 .container{
-  max-width:1200px;
-  margin:auto;
-  padding:10px 15px 60px;
+    max-width:1200px;
+    margin:auto;
+    padding:0 15px 50px;
 }
 
 .section-title{
-  margin:25px 0 18px;
-  font-size:25px;
+    font-size:24px;
+    margin:20px 0;
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
 .card{
-  background:#fff;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 4px 18px #00000012;
-  transition:.2s;
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 25px #0000001c;
+.thumb{
+    height:210px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#dbeafe,#bfdbfe);
+    color:#1d4ed8;
+    font-size:25px;
+    font-weight:bold;
+    position:relative;
 }
 
-.thumbnail{
-  position:relative;
-  width:100%;
-  height:190px;
-  background:#e8edf5;
-  overflow:hidden;
+.thumb.video{
+    background:linear-gradient(135deg,#111827,#374151);
+    color:white;
 }
 
-.thumbnail img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.play{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#ef4444;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
 }
 
-.video-icon{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  background:#ef3340;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
-  box-shadow:0 4px 15px #0005;
+.info{
+    padding:16px;
 }
 
-.card-body{
-  padding:16px;
+.info h3{
+    margin-bottom:7px;
 }
 
-.card-body h3{
-  font-size:17px;
-  margin-bottom:7px;
-}
-
-.card-body p{
-  font-size:13px;
-  color:#687386;
-  margin-bottom:14px;
+.info p{
+    color:#777;
+    font-size:13px;
+    margin-bottom:13px;
 }
 
 .buttons{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
 }
 
 .btn{
-  display:inline-block;
-  padding:9px 13px;
-  border-radius:7px;
-  background:#155eef;
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:bold;
+    text-decoration:none;
+    color:white;
+    padding:9px 13px;
+    border-radius:7px;
+    font-size:13px;
+    font-weight:bold;
+    display:inline-block;
 }
 
-.btn:hover{
-  background:#0b46bd;
+.blue{background:#2563eb;}
+.green{background:#16a34a;}
+.orange{background:#f59e0b;}
+
+.ad-box{
+    grid-column:1/-1;
+    background:white;
+    border:1px dashed #bbb;
+    border-radius:12px;
+    padding:18px;
+    text-align:center;
 }
 
-.download{
-  background:#16a34a;
+.ad-box small{
+    display:block;
+    color:#888;
+    margin-bottom:10px;
 }
 
 .ad-btn{
-  background:#f59e0b;
-  color:#111;
-}
-
-.no-result{
-  text-align:center;
-  background:#fff;
-  padding:30px;
-  border-radius:10px;
-  display:none;
-  margin-top:20px;
+    display:inline-block;
+    background:#ef4444;
+    color:white;
+    padding:10px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 footer{
-  background:#080b14;
-  color:#fff;
-  text-align:center;
-  padding:35px 15px;
+    text-align:center;
+    padding:25px;
+    background:#111827;
+    color:white;
+    font-size:13px;
 }
 
-footer h2{
-  margin-bottom:7px;
+@media(max-width:850px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 }
 
-footer p{
-  color:#aeb7c7;
-  font-size:14px;
-  margin-top:5px;
-}
+@media(max-width:550px){
+    header h1{
+        font-size:29px;
+    }
 
-/* MOBILE */
+    .grid{
+        grid-template-columns:1fr;
+    }
 
-@media(max-width:900px){
-  .grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-@media(max-width:650px){
-  header h1{
-    font-size:29px;
-  }
-
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-
-  .thumbnail{
-    height:140px;
-  }
-
-  .card-body{
-    padding:11px;
-  }
-
-  .card-body h3{
-    font-size:15px;
-  }
-
-  .btn{
-    font-size:11px;
-    padding:8px 10px;
-  }
-}
-
-@media(max-width:400px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .thumbnail{
-    height:200px;
-  }
+    .thumb{
+        height:220px;
+    }
 }
 </style>
 </head>
@@ -264,413 +218,264 @@ footer p{
 <body>
 
 <header>
-  <h1>TAJA MEDIA</h1>
-  <p>Images • Videos • Media Gallery</p>
+    <h1>TAJA MEDIA</h1>
+    <p>Images • Videos • Media Gallery</p>
 </header>
 
-<nav>
-  <button class="nav-btn active" onclick="filterMedia('all',this)">
-    All
-  </button>
-
-  <button class="nav-btn" onclick="filterMedia('image',this)">
-    🖼️ Images
-  </button>
-
-  <button class="nav-btn" onclick="filterMedia('video',this)">
-    🎬 Videos
-  </button>
-</nav>
-
-<div class="search-box">
-  <input
-    type="text"
-    id="search"
-    placeholder="🔎 Search images or videos..."
-    onkeyup="searchMedia()">
+<div class="tabs">
+    <button class="active" onclick="filterMedia('all',this)">All</button>
+    <button onclick="filterMedia('image',this)">Images</button>
+    <button onclick="filterMedia('video',this)">Videos</button>
 </div>
 
-<main class="container">
-
-<h2 class="section-title">Latest Media</h2>
-
-<div class="grid" id="mediaGrid">
-
-<!-- =====================================================
-     IMAGE 1
-     ===================================================== -->
-
-<div class="card media image" data-title="Beautiful Image">
-
-  <div class="thumbnail">
-    <img
-      src="https://via.placeholder.com/800x500?text=IMAGE+1"
-      alt="Beautiful Image">
-  </div>
-
-  <div class="card-body">
-
-    <h3>Beautiful Image</h3>
-
-    <p>Click below to view or download.</p>
-
-    <div class="buttons">
-
-      <!-- YOUR IMAGE PAGE LINK -->
-      <a
-        class="btn"
-        href="IMAGE_LINK_1"
-        target="_blank">
-        View Image
-      </a>
-
-      <!-- DOWNLOAD -->
-      <a
-        class="btn download"
-        href="IMAGE_LINK_1"
-        download>
-        Download
-      </a>
-
-      <!-- ADSTERRA LINK 1 -->
-      <a
-        class="btn ad-btn"
-        href="AD_LINK_1"
-        target="_blank">
-        Open
-      </a>
-
-    </div>
-
-  </div>
+<div class="search">
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="Search media..."
+        onkeyup="searchMedia()">
 </div>
 
+<div class="container">
 
-<!-- =====================================================
-     IMAGE 2
-     ===================================================== -->
+    <h2 class="section-title">Latest Media</h2>
 
-<div class="card media image" data-title="New Image">
-
-  <div class="thumbnail">
-    <img
-      src="https://via.placeholder.com/800x500?text=IMAGE+2"
-      alt="New Image">
-  </div>
-
-  <div class="card-body">
-
-    <h3>New Image</h3>
-
-    <p>Latest image from TAJA MEDIA.</p>
-
-    <div class="buttons">
-
-      <a
-        class="btn"
-        href="IMAGE_LINK_2"
-        target="_blank">
-        View Image
-      </a>
-
-      <a
-        class="btn download"
-        href="IMAGE_LINK_2"
-        download>
-        Download
-      </a>
-
-      <!-- ADSTERRA LINK 2 -->
-      <a
-        class="btn ad-btn"
-        href="AD_LINK_2"
-        target="_blank">
-        Open
-      </a>
-
-    </div>
-
-  </div>
-</div>
-
-
-<!-- =====================================================
-     VIDEO 1
-     ===================================================== -->
-
-<div class="card media video" data-title="Latest Video">
-
-  <div class="thumbnail">
-
-    <img
-      src="https://via.placeholder.com/800x500?text=VIDEO+1"
-      alt="Latest Video">
-
-    <div class="video-icon">▶️</div>
-
-  </div>
-
-  <div class="card-body">
-
-    <h3>Latest Video</h3>
-
-    <p>Click below to watch the video.</p>
-
-    <div class="buttons">
-
-      <!-- YOUR VIDEO LINK -->
-      <a
-        class="btn"
-        href="VIDEO_LINK_1"
-        target="_blank">
-        ▶️ Watch Video
-      </a>
-
-      <!-- ADSTERRA LINK 3 -->
-      <a
-        class="btn ad-btn"
-        href="AD_LINK_3"
-        target="_blank">
-        Open
-      </a>
-
-    </div>
-
-  </div>
-</div>
-
-
-<!-- =====================================================
-     VIDEO 2
-     ===================================================== -->
-
-<div class="card media video" data-title="New Video">
-
-  <div class="thumbnail">
-
-    <img
-      src="https://via.placeholder.com/800x500?text=VIDEO+2"
-      alt="New Video">
-
-    <div class="video-icon">▶️</div>
-
-  </div>
-
-  <div class="card-body">
-
-    <h3>New Video</h3>
-
-    <p>Watch the latest video.</p>
-
-    <div class="buttons">
-
-      <a
-        class="btn"
-        href="VIDEO_LINK_2"
-        target="_blank">
-        ▶️ Watch Video
-      </a>
-
-      <!-- ADSTERRA LINK 4 -->
-      <a
-        class="btn ad-btn"
-        href="AD_LINK_4"
-        target="_blank">
-        Open
-      </a>
-
-    </div>
-
-  </div>
-</div>
-
-
-<!-- =====================================================
-     MORE IMAGE
-     ===================================================== -->
-
-<div class="card media image" data-title="Image 3">
-
-  <div class="thumbnail">
-    <img
-      src="https://via.placeholder.com/800x500?text=IMAGE+3"
-      alt="Image 3">
-  </div>
-
-  <div class="card-body">
-
-    <h3>Image 3</h3>
-
-    <p>TAJA MEDIA image.</p>
-
-    <div class="buttons">
-
-      <a
-        class="btn"
-        href="IMAGE_LINK_3"
-        target="_blank">
-        View Image
-      </a>
-
-      <a
-        class="btn download"
-        href="IMAGE_LINK_3"
-        download>
-        Download
-      </a>
-
-      <!-- ADSTERRA LINK 5 -->
-      <a
-        class="btn ad-btn"
-        href="AD_LINK_5"
-        target="_blank">
-        Open
-      </a>
-
-    </div>
-
-  </div>
-</div>
-
-
-<!-- =====================================================
-     MORE VIDEO
-     ===================================================== -->
-
-<div class="card media video" data-title="Video 3">
-
-  <div class="thumbnail">
-
-    <img
-      src="https://via.placeholder.com/800x500?text=VIDEO+3"
-      alt="Video 3">
-
-    <div class="video-icon">▶️</div>
-
-  </div>
-
-  <div class="card-body">
-
-    <h3>Video 3</h3>
-
-    <p>Watch this video.</p>
-
-    <div class="buttons">
-
-      <a
-        class="btn"
-        href="VIDEO_LINK_3"
-        target="_blank">
-        ▶️ Watch Video
-      </a>
-
-      <!-- ADSTERRA LINK 6 -->
-      <a
-        class="btn ad-btn"
-        href="AD_LINK_6"
-        target="_blank">
-        Open
-      </a>
-
-    </div>
-
-  </div>
-</div>
+    <div class="grid" id="mediaGrid"></div>
 
 </div>
-
-<div class="no-result" id="noResult">
-  No media found.
-</div>
-
-</main>
-
 
 <footer>
-
-  <h2>TAJA MEDIA</h2>
-
-  <p>Images • Videos • Media Gallery</p>
-
-  <p>© 2026 TAJA MEDIA. All Rights Reserved.</p>
-
+    © 2026 TAJA MEDIA — All Rights Reserved
 </footer>
 
 
 <script>
 
-/* =========================================
-   CATEGORY FILTER
-   ========================================= */
+/* =====================================================
+   ADSTERRA
+   1-4 = তোমার দেওয়া link
+   5-8 = পরে link বসাবে
+===================================================== */
 
-function filterMedia(type,button){
+const AD_LINKS = [
 
-  const cards=document.querySelectorAll(".media");
+    "https://www.profitableratecpmnetwork.com/syijr1uvu?key=d088e1c0f3f95d2c0eda81e0ff622ae7",
 
-  document.querySelectorAll(".nav-btn")
-    .forEach(btn=>btn.classList.remove("active"));
+    "https://www.profitableratecpmnetwork.com/mim31x3js4?key=08925693d929c49b9b41bbeefdee4375",
 
-  button.classList.add("active");
+    "https://www.profitableratecpmnetwork.com/k5k8s0qa?key=4daf5f7a0df194f580aaf78d90179a6a",
 
-  cards.forEach(card=>{
+    "https://www.profitableratecpmnetwork.com/fvkguvp6x?key=30a50d28b585a53cce1a5c1d4d878895",
 
-    if(type==="all"){
-      card.style.display="";
+    "",
+
+    "",
+
+    "",
+
+    ""
+
+];
+
+
+/* =====================================================
+   MEDIA
+===================================================== */
+
+const MEDIA = [
+
+    {
+        type:"image",
+        title:"Beautiful Image",
+        description:"View and download image.",
+        ad:AD_LINKS[0]
+    },
+
+    {
+        type:"image",
+        title:"New Image",
+        description:"Latest image from TAJA MEDIA.",
+        ad:AD_LINKS[1]
+    },
+
+    {
+        type:"video",
+        title:"Latest Video",
+        description:"Watch the latest video.",
+        ad:AD_LINKS[2]
+    },
+
+    {
+        type:"video",
+        title:"New Video",
+        description:"Watch the latest video.",
+        ad:AD_LINKS[3]
+    },
+
+    {
+        type:"image",
+        title:"Image 3",
+        description:"New media image.",
+        ad:AD_LINKS[4]
+    },
+
+    {
+        type:"video",
+        title:"Video 3",
+        description:"Latest media video.",
+        ad:AD_LINKS[5]
+    },
+
+    {
+        type:"image",
+        title:"Image 4",
+        description:"New image.",
+        ad:AD_LINKS[6]
+    },
+
+    {
+        type:"video",
+        title:"Video 4",
+        description:"New video.",
+        ad:AD_LINKS[7]
     }
 
-    else if(card.classList.contains(type)){
-      card.style.display="";
-    }
-
-    else{
-      card.style.display="none";
-    }
-
-  });
-
-}
+];
 
 
-/* =========================================
-   SEARCH
-   ========================================= */
+let currentFilter="all";
 
-function searchMedia(){
 
-  const search=
-    document.getElementById("search")
-    .value
-    .toLowerCase();
+function renderMedia(){
 
-  const cards=
-    document.querySelectorAll(".media");
+    const grid=document.getElementById("mediaGrid");
 
-  let found=0;
+    grid.innerHTML="";
 
-  cards.forEach(card=>{
+    let items=MEDIA.filter(item=>{
 
-    const title=
-      card.getAttribute("data-title")
-      .toLowerCase();
+        if(currentFilter==="all"){
+            return true;
+        }
 
-    if(title.includes(search)){
+        return item.type===currentFilter;
 
-      card.style.display="";
-      found++;
+    });
 
-    }else{
 
-      card.style.display="none";
+    items.forEach((item,index)=>{
 
-    }
+        const card=document.createElement("div");
 
-  });
+        card.className="card media-item";
 
-  document.getElementById("noResult").style.display=
-    found===0 ? "block" : "none";
-}
 
-</script>
+        let thumb="";
 
-</body>
-</html>
+        if(item.type==="video"){
+
+            thumb=`
+                <div class="thumb video">
+                    <div class="play">▶️</div>
+                </div>
+            `;
+
+        }else{
+
+            thumb=`
+                <div class="thumb">
+                    IMAGE
+                </div>
+            `;
+
+        }
+
+
+        let buttons="";
+
+
+        if(item.type==="image"){
+
+            buttons=`
+                <div class="buttons">
+
+                    <a href="#"
+                       class="btn blue"
+                       onclick="imageMessage();return false;">
+                       View Image
+                    </a>
+
+                    <a href="#"
+                       class="btn green"
+                       onclick="downloadMessage();return false;">
+                       Download
+                    </a>
+
+                </div>
+            `;
+
+        }else{
+
+            buttons=`
+                <div class="buttons">
+
+                    <a href="#"
+                       class="btn blue"
+                       onclick="videoMessage();return false;">
+                       ▶️ Watch Video
+                    </a>
+
+                </div>
+            `;
+
+        }
+
+
+        card.innerHTML=`
+
+            ${thumb}
+
+            <div class="info">
+
+                <h3>${item.title}</h3>
+
+                <p>${item.description}</p>
+
+                ${buttons}
+
+                ${
+                    item.ad
+                    ?
+                    `
+                    <br>
+
+                    <a
+                       href="${item.ad}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn orange">
+
+                       Open Ad
+
+                    </a>
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+        `;
+
+
+        grid.appendChild(card);
+
+
+        /* Ad placement */
+
+        if((index+1)%2===0){
+
+            const adIndex=Math.floor((index+1)/2)-1;
+
+            if(AD_LINKS[adIndex]){
+
+                const
