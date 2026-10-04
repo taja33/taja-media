@@ -3,479 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>TAJA MEDIA</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial,sans-serif;
-    background:#f3f6fb;
-    color:#222;
-}
-
-header{
-    background:linear-gradient(135deg,#111827,#2563eb);
-    color:white;
-    text-align:center;
-    padding:32px 15px;
-}
-
-header h1{
-    font-size:36px;
-    margin-bottom:8px;
-}
-
-header p{
-    font-size:15px;
-    opacity:.9;
-}
-
-.tabs{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    padding:18px 10px;
-    flex-wrap:wrap;
-}
-
-.tabs button{
-    border:0;
-    background:#e5e7eb;
-    padding:11px 22px;
-    border-radius:25px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.tabs button.active{
-    background:#2563eb;
-    color:white;
-}
-
-.search{
-    max-width:650px;
-    margin:0 auto 25px;
-    padding:0 15px;
-}
-
-.search input{
-    width:100%;
-    padding:14px 18px;
-    border:1px solid #ddd;
-    border-radius:30px;
-    outline:none;
-    font-size:15px;
-}
-
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:0 15px 50px;
-}
-
-.section-title{
-    font-size:24px;
-    margin:20px 0;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.card{
-    background:white;
-    border-radius:14px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.thumb{
-    height:210px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,#dbeafe,#bfdbfe);
-    color:#1d4ed8;
-    font-size:25px;
-    font-weight:bold;
-    position:relative;
-}
-
-.thumb.video{
-    background:linear-gradient(135deg,#111827,#374151);
-    color:white;
-}
-
-.play{
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:#ef4444;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-}
-
-.info{
-    padding:16px;
-}
-
-.info h3{
-    margin-bottom:7px;
-}
-
-.info p{
-    color:#777;
-    font-size:13px;
-    margin-bottom:13px;
-}
-
-.buttons{
-    display:flex;
-    gap:7px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    text-decoration:none;
-    color:white;
-    padding:9px 13px;
-    border-radius:7px;
-    font-size:13px;
-    font-weight:bold;
-    display:inline-block;
-}
-
-.blue{background:#2563eb;}
-.green{background:#16a34a;}
-.orange{background:#f59e0b;}
-
-.ad-box{
-    grid-column:1/-1;
-    background:white;
-    border:1px dashed #bbb;
-    border-radius:12px;
-    padding:18px;
-    text-align:center;
-}
-
-.ad-box small{
-    display:block;
-    color:#888;
-    margin-bottom:10px;
-}
-
-.ad-btn{
-    display:inline-block;
-    background:#ef4444;
-    color:white;
-    padding:10px 25px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-footer{
-    text-align:center;
-    padding:25px;
-    background:#111827;
-    color:white;
-    font-size:13px;
-}
-
-@media(max-width:850px){
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f3f6fb;color:#172033}
+a{text-decoration:none}
+header{background:linear-gradient(135deg,#111827,#2563eb);color:#fff;text-align:center;padding:30px 15px}
+header h1{font-size:36px;margin-bottom:7px}
+header p{opacity:.9}
+.top-ad{min-height:58px;display:flex;justify-content:center;align-items:center;background:#fff;padding:4px 8px;overflow:hidden}
+.top-ad .ad728{display:block;max-width:728px;width:100%;text-align:center}
+.tabs{display:flex;justify-content:center;gap:10px;padding:18px 10px;flex-wrap:wrap}
+.tabs button{border:0;background:#e5e7eb;padding:11px 22px;border-radius:25px;cursor:pointer;font-weight:bold}
+.tabs button.active{background:#2563eb;color:#fff}
+.search{max-width:650px;margin:0 auto 25px;padding:0 15px}
+.search input{width:100%;padding:14px 18px;border:1px solid #ddd;border-radius:30px;outline:none;font-size:15px}
+.container{max-width:1200px;margin:auto;padding:0 15px 50px}
+.section-title{font-size:24px;margin:20px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.08)}
+.thumb{height:210px;background:#dbeafe;position:relative;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.video-thumb{background:#111827}
+.video-thumb img{opacity:.78}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:#ef4444;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px}
+.info{padding:16px}
+.info h3{margin-bottom:7px}
+.info p{color:#777;font-size:13px;margin-bottom:13px}
+.buttons{display:flex;gap:7px;flex-wrap:wrap}
+.btn{border:0;color:#fff;padding:9px 13px;border-radius:7px;font-size:13px;font-weight:bold;display:inline-block;cursor:pointer}
+.blue{background:#2563eb}.green{background:#16a34a}.orange{background:#f59e0b}
+.ad-box{grid-column:1/-1;background:#fff;border:1px dashed #bbb;border-radius:12px;padding:10px;text-align:center;overflow:hidden}
+.native-ad{min-height:90px}
+footer{text-align:center;padding:25px;background:#111827;color:#fff;font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;padding:20px;overflow:auto}
+.modal.show{display:flex;align-items:center;justify-content:center}
+.modal-box{background:#fff;width:min(950px,100%);max-height:92vh;overflow:auto;border-radius:14px;padding:15px;position:relative}
+.close{position:absolute;right:10px;top:8px;border:0;background:#111827;color:#fff;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:20px}
+.modal-content{margin-top:30px;text-align:center}
+.modal-content img,.modal-content video{max-width:100%;max-height:70vh;border-radius:10px}
+.modal-actions{margin-top:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:550px){
-    header h1{
-        font-size:29px;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-
-    .thumb{
-        height:220px;
-    }
+ header h1{font-size:29px}
+ .grid{grid-template-columns:1fr}
+ .thumb{height:220px}
+ .top-ad{min-height:54px}
 }
 </style>
+
+<!-- Adsterra Social Bar / script -->
+<script src="https://pl31661640.profitableratecpmnetwork.com/87/70/b5/8770b572d1176c589b1d8bab37384c44.js"></script>
 </head>
 
 <body>
 
 <header>
-    <h1>TAJA MEDIA</h1>
-    <p>Images • Videos • Media Gallery</p>
+  <h1>TAJA MEDIA</h1>
+  <p>Images • Videos • Media Gallery</p>
 </header>
 
+<!-- Adsterra 728x90 -->
+<div class="top-ad">
+  <div class="ad728">
+    <script>
+      atOptions = {
+        'key' : '9d31700d86b65e39957a3dca40e588d7',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highrevenueformat.com/9d31700d86b65e39957a3dca40e588d7/invoke.js"></script>
+  </div>
+</div>
+
 <div class="tabs">
-    <button class="active" onclick="filterMedia('all',this)">All</button>
-    <button onclick="filterMedia('image',this)">Images</button>
-    <button onclick="filterMedia('video',this)">Videos</button>
+  <button class="active" onclick="filterMedia('all',this)">All</button>
+  <button onclick="filterMedia('image',this)">Images</button>
+  <button onclick="filterMedia('video',this)">Videos</button>
 </div>
 
 <div class="search">
-    <input
-        type="text"
-        id="searchBox"
-        placeholder="Search media..."
-        onkeyup="searchMedia()">
+  <input type="text" id="searchBox" placeholder="Search media..." oninput="searchMedia()">
 </div>
 
 <div class="container">
-
-    <h2 class="section-title">Latest Media</h2>
-
-    <div class="grid" id="mediaGrid"></div>
-
+  <h2 class="section-title">Latest Media</h2>
+  <div class="grid" id="mediaGrid"></div>
 </div>
 
-<footer>
-    © 2026 TAJA MEDIA — All Rights Reserved
-</footer>
+<footer>© 2026 TAJA MEDIA — All Rights Reserved</footer>
 
+<div class="modal" id="mediaModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="modal-content" id="modalContent"></div>
+    <div class="modal-actions" id="modalActions"></div>
+  </div>
+</div>
 
 <script>
-
-/* =====================================================
-   ADSTERRA
-   1-4 = তোমার দেওয়া link
-   5-8 = পরে link বসাবে
-===================================================== */
-
-const AD_LINKS = [
-
-    "https://www.profitableratecpmnetwork.com/syijr1uvu?key=d088e1c0f3f95d2c0eda81e0ff622ae7",
-
-    "https://www.profitableratecpmnetwork.com/mim31x3js4?key=08925693d929c49b9b41bbeefdee4375",
-
-    "https://www.profitableratecpmnetwork.com/k5k8s0qa?key=4daf5f7a0df194f580aaf78d90179a6a",
-
-    "https://www.profitableratecpmnetwork.com/fvkguvp6x?key=30a50d28b585a53cce1a5c1d4d878895",
-
-    "",
-
-    "",
-
-    "",
-
-    ""
-
-];
-
-
-/* =====================================================
-   MEDIA
-===================================================== */
+/*
+=========================================================
+HOW TO ADD YOUR OWN IMAGE / VIDEO
+---------------------------------------------------------
+1. imageUrl  = direct image URL (.jpg/.png/.webp)
+2. videoUrl  = direct video URL (.mp4/.webm)
+3. thumbUrl  = thumbnail image URL
+4. Add more objects by copying an item below.
+=========================================================
+*/
 
 const MEDIA = [
-
-    {
-        type:"image",
-        title:"Beautiful Image",
-        description:"View and download image.",
-        ad:AD_LINKS[0]
-    },
-
-    {
-        type:"image",
-        title:"New Image",
-        description:"Latest image from TAJA MEDIA.",
-        ad:AD_LINKS[1]
-    },
-
-    {
-        type:"video",
-        title:"Latest Video",
-        description:"Watch the latest video.",
-        ad:AD_LINKS[2]
-    },
-
-    {
-        type:"video",
-        title:"New Video",
-        description:"Watch the latest video.",
-        ad:AD_LINKS[3]
-    },
-
-    {
-        type:"image",
-        title:"Image 3",
-        description:"New media image.",
-        ad:AD_LINKS[4]
-    },
-
-    {
-        type:"video",
-        title:"Video 3",
-        description:"Latest media video.",
-        ad:AD_LINKS[5]
-    },
-
-    {
-        type:"image",
-        title:"Image 4",
-        description:"New image.",
-        ad:AD_LINKS[6]
-    },
-
-    {
-        type:"video",
-        title:"Video 4",
-        description:"New video.",
-        ad:AD_LINKS[7]
-    }
-
+  {
+    type: "image",
+    title: "My Image 1",
+    description: "Add your image description here.",
+    imageUrl: "https://placehold.co/900x600?text=IMAGE+1",
+    thumbUrl: "https://placehold.co/900x600?text=IMAGE+1"
+  },
+  {
+    type: "image",
+    title: "My Image 2",
+    description: "Add your image description here.",
+    imageUrl: "https://placehold.co/900x600?text=IMAGE+2",
+    thumbUrl: "https://placehold.co/900x600?text=IMAGE+2"
+  },
+  {
+    type: "video",
+    title: "My Video 1",
+    description: "Watch the video inside the website.",
+    videoUrl: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    thumbUrl: "https://placehold.co/900x600?text=VIDEO+1"
+  },
+  {
+    type: "video",
+    title: "My Video 2",
+    description: "Watch and download the video.",
+    videoUrl: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+    thumbUrl: "https://placehold.co/900x600?text=VIDEO+2"
+  }
 ];
 
-
-let currentFilter="all";
-
+let currentFilter = "all";
 
 function renderMedia(){
+  const grid = document.getElementById("mediaGrid");
+  grid.innerHTML = "";
 
-    const grid=document.getElementById("mediaGrid");
+  const search = document.getElementById("searchBox").value.toLowerCase().trim();
 
-    grid.innerHTML="";
+  const items = MEDIA.filter(item => {
+    const typeOK = currentFilter === "all" || item.type === currentFilter;
+    const textOK = !search ||
+      item.title.toLowerCase().includes(search) ||
+      item.description.toLowerCase().includes(search);
+    return typeOK && textOK;
+  });
 
-    let items=MEDIA.filter(item=>{
+  items.forEach((item,index) => {
+    const card = document.createElement("div");
+    card.className = "card";
 
-        if(currentFilter==="all"){
-            return true;
-        }
+    const thumb = item.thumbUrl
+      ? `<img src="${escapeHtml(item.thumbUrl)}" alt="${escapeHtml(item.title)}" loading="lazy">`
+      : "";
 
-        return item.type===currentFilter;
+    const videoClass = item.type === "video" ? "video-thumb" : "";
 
-    });
+    card.innerHTML = `
+      <div class="thumb ${videoClass}">
+        ${thumb}
+        ${item.type === "video" ? '<div class="play">▶</div>' : ''}
+      </div>
+      <div class="info">
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.description)}</p>
+        <div class="buttons">
+          <button class="btn blue" onclick="openMedia(${MEDIA.indexOf(item)})">
+            ${item.type === "video" ? "▶ Watch Video" : "View Image"}
+          </button>
+          <button class="btn green" onclick="downloadMedia(${MEDIA.indexOf(item)})">
+            Download
+          </button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
 
+    // Native ad after every 4 cards
+    if ((index + 1) % 4 === 0) {
+      const ad = document.createElement("div");
+      ad.className = "ad-box";
+      ad.innerHTML = `
+        <div class="native-ad">
+          <script async="async" data-cfasync="false"
+            src="https://pl31661639.profitableratecpmnetwork.com/b21680be381e9c867961254ab692fb79/invoke.js"></script>
+          <div id="container-b21680be381e9c867961254ab692fb79"></div>
+        </div>
+      `;
+      grid.appendChild(ad);
+    }
+  });
 
-    items.forEach((item,index)=>{
+  if (!items.length) {
+    grid.innerHTML = '<div class="ad-box">No media found.</div>';
+  }
+}
 
-        const card=document.createElement("div");
+function filterMedia(type,button){
+  currentFilter = type;
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+  button.classList.add("active");
+  renderMedia();
+}
 
-        card.className="card media-item";
+function searchMedia(){ renderMedia(); }
 
+function openMedia(index){
+  const item = MEDIA[index];
+  const content = document.getElementById("modalContent");
+  const actions = document.getElementById("modalActions");
 
-        let thumb="";
+  if(item.type === "image"){
+    content.innerHTML = `<img src="${escapeHtml(item.imageUrl)}" alt="${escapeHtml(item.title)}">`;
+    actions.innerHTML = `
+      <button class="btn green" onclick="downloadMedia(${index})">Download Image</button>
+    `;
+  }else{
+    content.innerHTML = `
+      <video controls autoplay playsinline preload="metadata" poster="${escapeHtml(item.thumbUrl || "")}">
+        <source src="${escapeHtml(item.videoUrl)}">
+        Your browser does not support video.
+      </video>
+    `;
+    actions.innerHTML = `
+      <button class="btn green" onclick="downloadMedia(${index})">Download Video</button>
+    `;
+  }
 
-        if(item.type==="video"){
+  document.getElementById("mediaModal").classList.add("show");
+}
 
-            thumb=`
-                <div class="thumb video">
-                    <div class="play">▶️</div>
-                </div>
-            `;
+function closeModal(){
+  document.getElementById("modalContent").innerHTML = "";
+  document.getElementById("mediaModal").classList.remove("show");
+}
 
-        }else{
+function downloadMedia(index){
+  const item = MEDIA[index];
+  const url = item.type === "image" ? item.imageUrl : item.videoUrl;
+  if(!url) return alert("Please add a direct file URL first.");
 
-            thumb=`
-                <div class="thumb">
-                    IMAGE
-                </div>
-            `;
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "";
+  a.target = "_blank";
+  a.rel = "noopener";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
 
-        }
+function escapeHtml(str){
+  return String(str || "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[c]));
+}
 
+renderMedia();
+</script>
 
-        let buttons="";
-
-
-        if(item.type==="image"){
-
-            buttons=`
-                <div class="buttons">
-
-                    <a href="#"
-                       class="btn blue"
-                       onclick="imageMessage();return false;">
-                       View Image
-                    </a>
-
-                    <a href="#"
-                       class="btn green"
-                       onclick="downloadMessage();return false;">
-                       Download
-                    </a>
-
-                </div>
-            `;
-
-        }else{
-
-            buttons=`
-                <div class="buttons">
-
-                    <a href="#"
-                       class="btn blue"
-                       onclick="videoMessage();return false;">
-                       ▶️ Watch Video
-                    </a>
-
-                </div>
-            `;
-
-        }
-
-
-        card.innerHTML=`
-
-            ${thumb}
-
-            <div class="info">
-
-                <h3>${item.title}</h3>
-
-                <p>${item.description}</p>
-
-                ${buttons}
-
-                ${
-                    item.ad
-                    ?
-                    `
-                    <br>
-
-                    <a
-                       href="${item.ad}"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn orange">
-
-                       Open Ad
-
-                    </a>
-                    `
-                    :
-                    ""
-                }
-
-            </div>
-        `;
-
-
-        grid.appendChild(card);
-
-
-        /* Ad placement */
-
-        if((index+1)%2===0){
-
-            const adIndex=Math.floor((index+1)/2)-1;
-
-            if(AD_LINKS[adIndex]){
-
-                const
+</body>
+</html>
